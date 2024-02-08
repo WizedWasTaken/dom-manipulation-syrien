@@ -1,3 +1,5 @@
+"use strict";
+
 function opgave1() {
   let menuElement = document.querySelector("#menu");
   console.dir(menuElement);
@@ -60,26 +62,26 @@ function opgave10() {
   let imageElements = document.querySelectorAll("img");
 
   let nextImageParent = imageElements[1].parentNode;
-  for (let i = 0; i < imageElements.length; i++) {
+  for (let i = 0; i < imageElements.length; i + 2) {
+    console.log("i: " + i);
+    console.log(imageElements);
     let currentImage = imageElements[i];
     let nextImage = imageElements[i + 1];
 
     if (nextImage != undefined) {
-      console.log("True: " + i);
-      console.log(nextImage);
+      //   console.log("True: " + i);
+      //   console.log(nextImage);
       nextImageParent = nextImage.parentNode;
-      console.log("nextImageParent: ", nextImageParent);
+      //   console.log("nextImageParent: ", nextImageParent);
       nextImageParent.insertBefore(currentImage, nextImage);
     } else {
       nextImage = imageElements[i - 1];
-      console.log("False: " + i);
-      console.log(nextImage);
+      //   console.log("False: " + i);
+      //   console.log(nextImage);
 
       nextImage.parentNode.insertBefore(nextImage, currentImage);
       currentImage.remove();
     }
-
-    // imageElements = document.querySelectorAll("img");
   }
 }
 
